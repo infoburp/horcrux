@@ -1,0 +1,51 @@
+<div ng-if="note">
+	<div class="single-note text-left">
+		<strong class="note-title">
+			{{ note.title }}
+
+			<time title="{{ note.createdate }}">
+				{{ note.createdate | fromNow }}
+				by <span class="user-id">{{ note.ip }}</span>
+			</time>
+		</strong>
+
+		<p ng-bind-html="note.copy | globalFilters"></p>
+	</div>
+
+	<hr />
+
+	<div ng-if="loading">
+		<i class="fa fa-spin fa-spinner"></i>
+	</div>
+
+	<div ng-if="!loading && replies.length === 0" class="nothing-to-see" ng-cloak>
+		<p><em>Be the first.</em></p>
+	</div>
+
+	<div ng-if="replies.length > 0">
+		<div class="single-note-comments text-left">
+			<article class="comment" ng-repeat="r in replies track by $index" data-id="{{ r.id }}">
+				<header>
+					<a href="javascript:;" class="tid">{{ r.id }}</a>
+
+					<time title="{{ r.createdate }}">
+						{{ r.createdate | fromNow }}
+						by <span class="user-id">{{ r.ip }}</span>
+					</time>
+
+					<span class="reply-links"></span>
+				</header>
+
+				<p ng-bind-html="r.copy | globalFilters | replyLinks"></p>
+			</article>
+		</div>
+
+		<div class="reply-hover text-left is-fixed">
+			<article class="comment"></article>
+		</div>
+	</div>
+</div>
+
+<div id="no-note" ng-if="!note" ng-cloak>
+	<p>Good try m8.</p>
+</div>

@@ -1,0 +1,24 @@
+<div ng-if="loading">
+	<i class="fa fa-spin fa-spinner"></i>
+</div>
+
+<div ng-if="!loading && notes.length === 0" class="nothing-to-see" ng-cloak>
+	<p><em>Be the first.</em></p>
+</div>
+
+<div class="note-list" ng-if="notes.length > 0" ng-cloak>
+	<a href="note/{{ n.id }}" class="text-left" ng-repeat="n in notes track by $index" ng-cloak>
+		<strong>
+			[{{ n.cc || 0 }}] {{ n.title || 'untitled' }}
+
+			<time>
+				{{ n.createdate | fromNow }}
+				by <span class="user-id">{{ n.ip }}</span>
+			</time>
+		</strong>
+
+		<em>
+			{{ n.copy | truncate:125 }}
+		</em>
+	</a>
+</div>

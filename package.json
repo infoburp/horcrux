@@ -1,0 +1,19 @@
+{
+  "name": "horcrux",
+  "version": "0.0.1",
+  "description": "horcrux",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "forum"
+  ],
+  "author": "outthislife",
+  "license": "BSD",
+  "dependencies": {
+    "express": "~4.11.1",
+    "mysql": "~2.5.4",
+    "crypto": "0.0.3"
+  }
+}
