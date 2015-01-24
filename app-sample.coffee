@@ -8,7 +8,7 @@ app.use(bodyParser.json())
 app.http().io()
 
 app.use (req, res, next) ->
-	res.header 'Access-Control-Allow-Origin', 'http://horcrux.nwsco.org'
+	res.header 'Access-Control-Allow-Origin', 'http://horcrux.io'
 	res.header 'Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept'
 	res.header 'Content-Type', 'application/json; charset=utf-8'
 
@@ -84,8 +84,7 @@ app.get '/notes', (req, res) ->
 
 app.get '/note/:noteId', (req, res) ->
 	getRowByID 'notes', req.params.noteId, (row) ->
-		if (row = row[0])?
-			row['ip'] = genUserID row.ip
+		row[0].ip = genUserID row[0].ip
 
 		res.send row
 
@@ -155,9 +154,8 @@ app.post '/addReply', limiter.middleware(), (req, res) ->
 		return res.send(503, 'nope') if err
 
 		getRowByID 'replies', row.insertId, (row) ->
-			if (row = row[0])?
-				row['ip'] = genUserID row['ip']
-				req.io.broadcast 'updateReplies', row
+			row[0].ip
+			req.io.broadcast 'updateReplies', row
 
 		res.send 200, 'OK'
 

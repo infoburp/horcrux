@@ -1,6 +1,6 @@
 app = angular.module 'app.controllers', ['ngRoute']
 
-io = window.io.connect 'http://horcrux.nwsco.org:3000'
+io = window.io.connect 'http://horcrux.io:3000'
 
 # ------------------------------------------------------------------
 
@@ -22,6 +22,8 @@ app.controller 'Index', ['$scope', '$routeParams', ($scope, $routeParams) ->
 	$scope.$parent.isHome = 1
 	$scope.notes = []
 	$scope.loading = true
+
+	document.title = 'Anonymous FFA board | Horcrux'
 
 	$scope.$xhr.fetch('notes').then (results) ->
 		$scope.notes.push n for n in results.data
@@ -45,6 +47,7 @@ app.controller 'Single', ['$scope', '$routeParams', ($scope, $routeParams) ->
 
 	$scope.$xhr.fetch("note/#{$routeParams.noteId}", null, null, true).then (results) ->
 		$scope.note = results.data
+		document.title = "#{$scope.note.title} | Horcrux"
 
 	$scope.replies = []
 	$scope.$xhr.fetch("note/#{$routeParams.noteId}/replies").then (results) ->

@@ -22,7 +22,7 @@ app.service '$xhr', ['$http', '$q', ($http, $q) ->
 
 		config =
 			method: method
-			url: 'http://horcrux.nwsco.org:3000/' + uri
+			url: 'http://horcrux.io:3000/' + uri
 			cache: cache
 
 		if method is 'POST'

@@ -151,6 +151,9 @@ form
 			@media (min-width: $medium)
 				letter-spacing: 5px
 
+	span.quote
+		color: #A200FF
+
 	time
 		color: #9E9E9E
 		font-size: rem(10)
@@ -255,6 +258,9 @@ form
 				a
 					color: inherit
 
+				span.quote
+					color: inherit
+
 			img
 				max-width: 350px
 
@@ -281,67 +287,67 @@ form[post-form]
 		#popup-actions *
 			@include opacity(.5)
 
-	#popup
-		bottom: 65px
-		padding: $pad
-		@include boxShadow(1px 1px #DDD)
-		background: #EEE
+#popup
+	bottom: 65px
+	padding: $pad
+	@include boxShadow(1px 1px #DDD)
+	background: #EEE
 
-		> a.cover
-			z-index: 1
-			cursor: zoom-out
+	> a.cover
+		z-index: 1
+		cursor: zoom-out
 
-		input[type=text], textarea
-			margin: 0
-			background: #FFF
+	input[type=text], textarea
+		margin: 0
+		background: #FFF
 
-		input[type=text]
-			margin: 0 0 10px
+	input[type=text]
+		margin: 0 0 10px
 
-		textarea
-			width: 325px
-			height: 140px
-			resize: both
+	textarea
+		width: 325px
+		height: 140px
+		resize: both
 
-		small
-			top: 8px
-			@include opacity(.5)
-			display: block
-			font-size: rem(11)
+	small
+		top: 8px
+		@include opacity(.5)
+		display: block
+		font-size: rem(11)
 
-		.counter
-			z-index: 5
-			display: none
-			color: #999
-			padding: 25px
-			@include transparentBG(#CCC, .75)
+	.counter
+		z-index: 5
+		display: none
+		color: #999
+		padding: 25px
+		@include transparentBG(#CCC, .75)
 
-	#popup-actions
-		$sq: 40px
+#popup-actions
+	$sq: 40px
 
-		position: absolute
-		right: 0
-		bottom: $pad
+	position: absolute
+	right: 0
+	bottom: $pad
 
-		a, button
-			display: inline-block
-			height: $sq
-			color: #FFF
-			font-size: 80%
-			font-family: $font
-			line-height: $sq
-			text-align: center
-			text-transform: uppercase
-			padding: 0 $pad
-			background: #000
+	a, button
+		display: inline-block
+		height: $sq
+		color: #FFF
+		font-size: 80%
+		font-family: $font
+		line-height: $sq
+		text-align: center
+		text-transform: uppercase
+		padding: 0 $pad
+		background: #000
 
-			&.cancel-action
-				color: #666
-				background: #EEE
+		&.cancel-action
+			color: #666
+			background: #EEE
 
-			&:hover
-				color: inherit
-				background: $secondary
+		&:hover
+			color: inherit
+			background: $secondary
 
-				&:active
-					@include filter(invert(1))
+			&:active
+				@include filter(invert(1))

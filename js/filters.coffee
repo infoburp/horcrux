@@ -24,7 +24,7 @@ app.filter 'objLength', -> (obj) ->
 # ------------------------------------------------------------------
 
 app.filter 'globalFilters', ->
-	isImgUrl = /(http|ftp|https):\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:\/~+#-]*[\w@?^=%&amp;\/~+#-])?/gi
+	urls = /(http|ftp|https):\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:\/~+#-]*[\w@?^=%&amp;\/~+#-])?/gi
 
 	services = /(imgur|ytimg|blogspot|imgh)/
 	accepted = ['jpg', 'gif', 'jpeg', 'png']
@@ -34,16 +34,16 @@ app.filter 'globalFilters', ->
 	(text, target = '_blank') ->
 		return '' unless text
 
-		angular.forEach text.match(isImgUrl), (url) ->
+		angular.forEach text.match(urls), (url) ->
 			ext = url.split('.').pop().toLowerCase()
 			replacement = "<a target=#{target} href=#{url}>#{url}</a>"
 
-			# Images
 			if services.test(url) and testType(accepted, ext)
 				replacement = "<img src=#{url} />"
 
 			text = text.replace url, replacement
 
+		# text = text.replace /(>.*)/g, '<span class="quote">$1</span>'
 		text.replace /(?:\r\n|\r|\n)/g, '<br />'
 
 # ------------------------------------------------------------------

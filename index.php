@@ -6,11 +6,12 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimal-ui" />
 
-	<title>[HX]</title>
+	<title>Anonymous FFA board | Horcrux</title>
 
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
 	<link rel="stylesheet" href="//cdn.jsdelivr.net/g/foundation@5.4.7(css/foundation.min.css),normalize@3.0.0" />
 	<link rel="stylesheet" href="css/core.css" />
+	<link rel="shortcut icon" href="/favicon.jpg" />
 
 	<!--[if lt IE 9]>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
@@ -83,7 +84,7 @@
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.22/angular-route.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.22/angular-sanitize.min.js"></script>
 <script src="//cdn.jsdelivr.net/momentjs/2.9.0/moment.min.js"></script>
-<script src="http://horcrux.nwsco.org:3000/socket.io/socket.io.js"></script>
+<script src="http://horcrux.io:3000/socket.io/socket.io.js"></script>
 <script data-main="js/core" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.9/require.min.js"></script>
 
 <script>
