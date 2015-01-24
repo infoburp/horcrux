@@ -85,8 +85,7 @@ app.get '/notes', (req, res) ->
 app.get '/note/:noteId', (req, res) ->
 	getRowByID 'notes', req.params.noteId, (row) ->
 		row[0].ip = genUserID row[0].ip
-
-		res.send row
+		res.send row[0]
 
 app.get '/note/:noteId/replies', (req, res) ->
 	sql = '
@@ -154,8 +153,8 @@ app.post '/addReply', limiter.middleware(), (req, res) ->
 		return res.send(503, 'nope') if err
 
 		getRowByID 'replies', row.insertId, (row) ->
-			row[0].ip
-			req.io.broadcast 'updateReplies', row
+			row[0].ip = genUserID row[0].ip
+			req.io.broadcast 'updateReplies', row[0]
 
 		res.send 200, 'OK'
 
